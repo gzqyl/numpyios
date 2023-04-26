@@ -9,6 +9,7 @@ let package = Package(
             name: "NumPy-iOS",
             targets: ["libnumpy", "libnpymath", "libnpyrandom", "Link", "NumPySupport"]),
     ],
+    moduleAliases: ["Link": "LinkNumpy"],
     dependencies: [
         .package(url: "https://github.com/kewlbear/Python-iOS.git", from: "0.1.1-b"),
     ],
@@ -18,7 +19,6 @@ let package = Package(
         .binaryTarget(name: "libnpyrandom", url: "https://github.com/kewlbear/NumPy-iOS/releases/download/v0.1.1-b20230423-102342/libnpyrandom.xcframework.zip", checksum: "34fc83a5cfc4bc6b0fc02662cf74c8065ed796e0c78e964f1fb0a598c6224012"),
         .target(
             name: "Link",
-            moduleAliases: ["Link": "LinkNumpy"],
             dependencies: ["libnumpy", "libnpymath", "libnpyrandom", "Python-iOS"],
             linkerSettings: [.linkedFramework("Accelerate")]),
         .target(
