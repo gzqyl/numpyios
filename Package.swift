@@ -7,9 +7,9 @@ let package = Package(
     products: [
         .library(
             name: "NumPy-iOS",
-            targets: ["libnumpy", "libnpymath", "libnpyrandom", "Link", "NumPySupport"]),
+            targets: ["libnumpy", "libnpymath", "libnpyrandom", "Link", "NumPySupport"],
+            moduleAliases: ["Link": "LinkNumpy"]),
     ],
-    moduleAliases: ["Link": "LinkNumpy"],
     dependencies: [
         .package(url: "https://github.com/kewlbear/Python-iOS.git", from: "0.1.1-b"),
     ],
