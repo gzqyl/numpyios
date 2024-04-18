@@ -22,7 +22,7 @@ let package = Package(
             linkerSettings: [.linkedFramework("Accelerate")]),
         .target(
             name: "NumPySupport",
-            dependencies: ["pyios"],
+            dependencies: ["Python-iOS"],
             resources: [.copy("site-packages")]),
         .testTarget(
             name: "NumPy-iOSTests",
