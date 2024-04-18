@@ -20,7 +20,10 @@ let package = Package(
             name: "LinkNumpy",
             dependencies: ["libnumpy", "libnpymath", "libnpyrandom", "Python-iOS"],
             cSettings: [
-                .headerSearchPath("numpy")
+                .headerSearchPath("numpy"),
+                .headerSearchPath("python3.11"),
+                .headerSearchPath("openssl"),
+                .headerSearchPath("ffi")
             ],
             linkerSettings: [.linkedFramework("Accelerate")]
         ),
