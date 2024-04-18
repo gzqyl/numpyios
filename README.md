@@ -1,5 +1,6 @@
 # NumPy-iOS
 
+# We just need to add this package, it will auto add python-ios ...
 This swift package enables you to use NumPy in your iOS apps.
 
 ## Installation
