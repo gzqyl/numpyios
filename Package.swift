@@ -19,10 +19,11 @@ let package = Package(
         .target(
             name: "LinkNumpy",
             dependencies: ["libnumpy", "libnpymath", "libnpyrandom", "Python-iOS"],
-            linkerSettings: [.linkedFramework("Accelerate")],
             cSettings: [
                 .headerSearchPath("numpy")
-            ]),
+            ],
+            linkerSettings: [.linkedFramework("Accelerate")]
+        ),
         .target(
             name: "NumPySupport",
             dependencies: ["Python-iOS"],
