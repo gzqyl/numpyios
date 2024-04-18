@@ -7,19 +7,18 @@ let package = Package(
     products: [
         .library(
             name: "NumPy-iOS",
-            targets: ["libnumpy", "libnpymath", "libnpysort", "LinkNumpy", "NumPySupport"]),
+            targets: ["libnumpy", "libnpymath", "libnpyrandom", "LinkNumpy", "NumPySupport"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/gzqyl/Python-iOS.git", .branch("kivy-ios")),
+        .package(url: "https://github.com/gzqyl/pyios", .branch("master")),
     ],
     targets: [
-        .binaryTarget(name: "libnumpy", url: "https://github.com/kewlbear/NumPy-iOS/releases/download/0.0.20210406050242/libnumpy.xcframework.zip", checksum: "2f784e2a7ce6b612f20d0d2d16a8b715822ddd69f3b87458a7eb8d9aab9f750b"),
-        .binaryTarget(name: "libnpymath", url: "https://github.com/kewlbear/NumPy-iOS/releases/download/0.0.20210406050242/libnpymath.xcframework.zip", checksum: "c8e5e2952bb681163e332f42f3e19f3db225dffdabbebb9a003ca9520f516a5c"),
-        .binaryTarget(name: "libnpysort", url: "https://github.com/kewlbear/NumPy-iOS/releases/download/0.0.20210406050242/libnpysort.xcframework.zip", checksum: "6d907e3db2cccbf78a37b9a582bef18acfb3038e466f7a385bb2239193b9c095"),
-        
+        .binaryTarget(name: "libnumpy", url: "https://github.com/gzqyl/numpyios/releases/download/binaryxc/libnumpy.xcframework.zip", checksum: "99ae0916f33840cf9c97b423147e00c8ec5e0eb5e68d1a36731f230309d9d40c"),
+        .binaryTarget(name: "libnpymath", url: "https://github.com/gzqyl/numpyios/releases/download/binaryxc/libnpymath.xcframework.zip", checksum: "962737e93074862f41d48c127a243e19b1979a1949382ea7dc3746075739d8fc"),
+        .binaryTarget(name: "libnpyrandom", url: "https://github.com/gzqyl/numpyios/releases/download/binaryxc/libnpyrandom.xcframework.zip", checksum: "11527be142959412b036b43cc4b93c8fea29802bb4652f1ce561e97c93bf0a99"),
         .target(
             name: "LinkNumpy",
-            dependencies: ["libnumpy", "libnpymath", "libnpysort", "Python-iOS"],
+            dependencies: ["libnumpy", "libnpymath", "libnpyrandom", "Python-iOS"],
             linkerSettings: [.linkedFramework("Accelerate")]),
         .target(
             name: "NumPySupport",
