@@ -18,11 +18,11 @@ let package = Package(
         .binaryTarget(name: "libnpyrandom", url: "https://github.com/gzqyl/numpyios/releases/download/binaryxc/libnpyrandom.xcframework.zip", checksum: "11527be142959412b036b43cc4b93c8fea29802bb4652f1ce561e97c93bf0a99"),
         .target(
             name: "LinkNumpy",
-            dependencies: ["libnumpy", "libnpymath", "libnpyrandom", "Python-iOS"],
+            dependencies: ["libnumpy", "libnpymath", "libnpyrandom", "pyios"],
             linkerSettings: [.linkedFramework("Accelerate")]),
         .target(
             name: "NumPySupport",
-            dependencies: ["Python-iOS"],
+            dependencies: ["pyios"],
             resources: [.copy("site-packages")]),
         .testTarget(
             name: "NumPy-iOSTests",
