@@ -2,6 +2,22 @@
 
 import PackageDescription
 
+
+'name:dependencies:cSettings:resources:', 
+expected 'name:dependencies:path:exclude:sources:publicHeadersPath:cSettings:cxxSettings:swiftSettings:linkerSettings:')
+    name: String,
+    dependencies: [Target.Dependency] = [],
+    path: String? = nil,
+    exclude: [String] = [],
+    sources: [String]? = nil,
+    resources: [Resource]? = nil,
+    publicHeadersPath: String? = nil,
+    cSettings: [CSetting]? = nil,
+    cxxSettings: [CXXSetting]? = nil,
+    swiftSettings: [SwiftSetting]? = nil,
+    linkerSettings: [LinkerSetting]? = nil
+
+
 let package = Package(
     name: "NumPy-iOS",
     products: [
@@ -36,6 +52,7 @@ let package = Package(
         .target(
             name: "NumPySupport",
             dependencies: ["Python-iOS"],
+            resources: [.copy("site-packages")],
             cSettings: [
                 .headerSearchPath("./numpy"),
                 .headerSearchPath("./numpy/libdivide"),
@@ -48,7 +65,6 @@ let package = Package(
                 .headerSearchPath("./openssl/openssl"),
                 .headerSearchPath("./ffi")
             ],
-            resources: [.copy("site-packages")]
         ),
         .testTarget(
             name: "NumPy-iOSTests",
