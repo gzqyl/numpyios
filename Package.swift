@@ -19,18 +19,19 @@ let package = Package(
         .target(
             name: "LinkNumpy",
             dependencies: ["libnumpy", "libnpymath", "libnpyrandom", "Python-iOS"],
-            cSettings: [
-                .headerSearchPath("./numpy"),
-                .headerSearchPath("./numpy/libdivide"),
-                .headerSearchPath("./numpy/random"),
-                .headerSearchPath("./python3.11"),
-                .headerSearchPath("./python3.11/cpython"),
-                .headerSearchPath("./python3.11/internal"),
-                .headerSearchPath("./openssl/crypto"),
-                .headerSearchPath("./openssl/internal"),
-                .headerSearchPath("./openssl/openssl"),
-                .headerSearchPath("./ffi")
-            ],
+            publicHeadersPath: "public",
+            // cSettings: [
+            //     .headerSearchPath("./numpy"),
+            //     .headerSearchPath("./numpy/libdivide"),
+            //     .headerSearchPath("./numpy/random"),
+            //     .headerSearchPath("./python3.11"),
+            //     .headerSearchPath("./python3.11/cpython"),
+            //     .headerSearchPath("./python3.11/internal"),
+            //     .headerSearchPath("./openssl/crypto"),
+            //     .headerSearchPath("./openssl/internal"),
+            //     .headerSearchPath("./openssl/openssl"),
+            //     .headerSearchPath("./ffi")
+            // ],
             linkerSettings: [.linkedFramework("Accelerate")]
         ),
         .target(
@@ -52,19 +53,19 @@ let package = Package(
         ),
         .testTarget(
             name: "NumPy-iOSTests",
-            dependencies: ["NumPySupport"],
-            cSettings: [
-                .headerSearchPath("./numpy"),
-                .headerSearchPath("./numpy/libdivide"),
-                .headerSearchPath("./numpy/random"),
-                .headerSearchPath("./python3.11"),
-                .headerSearchPath("./python3.11/cpython"),
-                .headerSearchPath("./python3.11/internal"),
-                .headerSearchPath("./openssl/crypto"),
-                .headerSearchPath("./openssl/internal"),
-                .headerSearchPath("./openssl/openssl"),
-                .headerSearchPath("./ffi")
-            ]
+            dependencies: ["NumPySupport"]
+            // cSettings: [
+            //     .headerSearchPath("./numpy"),
+            //     .headerSearchPath("./numpy/libdivide"),
+            //     .headerSearchPath("./numpy/random"),
+            //     .headerSearchPath("./python3.11"),
+            //     .headerSearchPath("./python3.11/cpython"),
+            //     .headerSearchPath("./python3.11/internal"),
+            //     .headerSearchPath("./openssl/crypto"),
+            //     .headerSearchPath("./openssl/internal"),
+            //     .headerSearchPath("./openssl/openssl"),
+            //     .headerSearchPath("./ffi")
+            // ]
         ),
             
     ]
