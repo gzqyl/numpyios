@@ -48,7 +48,7 @@ let package = Package(
                 .headerSearchPath("./openssl/internal"),
                 .headerSearchPath("./openssl/openssl"),
                 .headerSearchPath("./ffi")
-            ]
+            ],
         ),
         .testTarget(
             name: "NumPy-iOSTests",
