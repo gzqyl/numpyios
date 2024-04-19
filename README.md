@@ -2,7 +2,7 @@
 
 # We just need to add this package, it will auto add pyios ...
 
-# Note, the python version should be 3.11, not update it for another higher version, the impl is deprectated which will be removed in higher version, that will make the things trouble in no meaning.
+# Note, the python version should be 3.11, not update it for another higher version, the imp is deprectated which will be removed in higher version, that will make the things trouble in no meaning.
 
 
 This swift package enables you to use NumPy in your iOS apps.
