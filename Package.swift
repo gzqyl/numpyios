@@ -2,22 +2,6 @@
 
 import PackageDescription
 
-
-'name:dependencies:cSettings:resources:', 
-expected 'name:dependencies:path:exclude:sources:publicHeadersPath:cSettings:cxxSettings:swiftSettings:linkerSettings:')
-    name: String,
-    dependencies: [Target.Dependency] = [],
-    path: String? = nil,
-    exclude: [String] = [],
-    sources: [String]? = nil,
-    resources: [Resource]? = nil,
-    publicHeadersPath: String? = nil,
-    cSettings: [CSetting]? = nil,
-    cxxSettings: [CXXSetting]? = nil,
-    swiftSettings: [SwiftSetting]? = nil,
-    linkerSettings: [LinkerSetting]? = nil
-
-
 let package = Package(
     name: "NumPy-iOS",
     products: [
