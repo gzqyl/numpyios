@@ -19,7 +19,24 @@ let package = Package(
         .target(
             name: "LinkNumpy",
             dependencies: ["libnumpy", "libnpymath", "libnpyrandom", "Python-iOS"],
-            publicHeadersPath: "public",
+            cSettings: [
+                .headerSearchPath("./numpy"),
+                // .headerSearchPath("./numpy/libdivide"),
+                // .headerSearchPath("./numpy/random"),
+                .headerSearchPath("./python3.11"),
+                // .headerSearchPath("./python3.11/cpython"),
+                // .headerSearchPath("./python3.11/internal"),
+                .headerSearchPath("./openssl/crypto"),
+                .headerSearchPath("./openssl/internal"),
+                .headerSearchPath("./openssl/openssl"),
+                .headerSearchPath("./ffi")
+            ],
+            linkerSettings: [.linkedFramework("Accelerate")]
+        ),
+        .target(
+            name: "NumPySupport",
+            dependencies: ["Python-iOS"],
+            resources: [.copy("site-packages")]
             // cSettings: [
             //     .headerSearchPath("./numpy"),
             //     .headerSearchPath("./numpy/libdivide"),
@@ -32,24 +49,6 @@ let package = Package(
             //     .headerSearchPath("./openssl/openssl"),
             //     .headerSearchPath("./ffi")
             // ],
-            linkerSettings: [.linkedFramework("Accelerate")]
-        ),
-        .target(
-            name: "NumPySupport",
-            dependencies: ["Python-iOS"],
-            resources: [.copy("site-packages")],
-            cSettings: [
-                .headerSearchPath("./numpy"),
-                .headerSearchPath("./numpy/libdivide"),
-                .headerSearchPath("./numpy/random"),
-                .headerSearchPath("./python3.11"),
-                .headerSearchPath("./python3.11/cpython"),
-                .headerSearchPath("./python3.11/internal"),
-                .headerSearchPath("./openssl/crypto"),
-                .headerSearchPath("./openssl/internal"),
-                .headerSearchPath("./openssl/openssl"),
-                .headerSearchPath("./ffi")
-            ],
         ),
         .testTarget(
             name: "NumPy-iOSTests",
